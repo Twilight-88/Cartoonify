@@ -2,8 +2,9 @@
 
 Transform your photos into cartoon-style art using Python, OpenCV, and Flask!
 
-![Cartoonify Screenshot](static/sample/screenshot.png)
-
+| Normal Image                                       | Cartoonify Image                                               |
+|----------------------------------------------------|----------------------------------------------------------------|
+| ![Cartoonify Screenshot](static/sample/test2.jpg)  | ![Cartoonify Screenshot](static/sample/cartoon_test2.jpg)      |
 ---
 
 ## 📌 Features
