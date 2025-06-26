@@ -2,8 +2,8 @@
 
 Transform your photos into cartoon-style art using Python, OpenCV, and Flask!
 
-| Normal Image                                       | Cartoonify Image                                               |
-|----------------------------------------------------|----------------------------------------------------------------|
+| Normal Image                                                   | Cartoonify Image                                               |
+|----------------------------------------------------------------|----------------------------------------------------------------|
 | ![test2](https://github.com/user-attachments/assets/2b632be3-4119-48f9-8a27-3384f0e95c59)  | ![cartoon_test2](https://github.com/user-attachments/assets/0b7ce7b5-c62b-4688-99b1-7638b93367f5)     |
 ---
 
