@@ -1,1 +1,108 @@
-# Cartoonify
+# 🎨 Cartoonify an Image with OpenCV + Flask
+
+Transform your photos into cartoon-style art using Python, OpenCV, and Flask!
+
+![Cartoonify Screenshot](static/sample/screenshot.png)
+
+---
+
+## 📌 Features
+
+- 📤 Upload any photo
+- 🧠 Apply cartoon filter using OpenCV
+- 📥 Download the cartoonified image
+- 🖥️ Simple, responsive web interface
+
+---
+
+## 🧰 Tech Stack
+
+| Layer     | Technology          |
+|-----------|---------------------|
+| Backend   | Flask (Python)      |
+| Image FX  | OpenCV              |
+| Frontend  | HTML, CSS, JS       |
+| Template  | Jinja2              |
+
+---
+
+## 📁 Project Structure
+
+cartoonify-image/
+│
+├── backend/
+│ ├── app.py # Flask app
+│ ├── cartoonify.py # Image processing logic
+│
+├── static/
+│ ├── uploads/ # Uploaded images
+│ ├── results/ # Processed cartoon images
+│
+├── templates/
+│ └── index.html # Main UI
+│
+├── venv/ # Python virtual environment
+├── requirements.txt # Dependencies
+└── README.md
+
+
+---
+
+## 🚀 Setup Instructions
+
+### 1. Clone the Repo
+
+```bash
+git clone https://github.com/yourusername/cartoonify-image.git
+cd cartoonify-image
+
+2. Create Virtual Environment
+
+python -m venv venv
+# Windows:
+venv\Scripts\activate
+# macOS/Linux:
+source venv/bin/activate
+
+3. Install Dependencies
+
+pip install -r requirements.txt
+
+4. Run the App
+
+cd backend
+python app.py
+Visit: http://127.0.0.1:5000 in your browser 🚀
+
+
+🧪 Sample Output
+Original Image	Cartoonified
+
+📌 To Do
+ Add pencil sketch / stylized options
+
+ Allow drag-and-drop upload
+
+ Host on Replit / Render / Heroku
+
+📜 License
+MIT License © 2025 [Your Name]
+
+🙌 Acknowledgments
+OpenCV Library
+
+Flask Microframework
+
+
+> ⚠️ **Note**: If you want a sample image (`original.jpg`, `cartoon.jpg`, `screenshot.png`) to appear in the `README.md`, place them in `static/sample/` and commit them to GitHub.
+
+---
+
+### ✅ Done!
+
+Would you like me to:
+- Help you deploy this (on **Render**, **Replit**, or **GitHub Pages** for frontend)?
+- Add more cartoon filters or download history?
+- Add user login to track uploaded images?
+
+Let me know what’s next!
