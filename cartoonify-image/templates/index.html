@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartoonify an Image</title>
+    <style>
+        :root {
+            --primary-color: #6c5ce7;
+            --secondary-color: #a29bfe;
+            --accent-color: #fd79a8;
+            --dark-color: #2d3436;
+            --light-color: #f5f6fa;
+            --success-color: #00b894;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            margin: 30px 0 15px;
+            font-size: 1.8rem;
+        }
+        
+        .upload-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .file-input-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        .file-input-label {
+            display: block;
+            padding: 15px 20px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .file-input-label:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .file-input {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        .submit-btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .submit-btn:hover {
+            background-color: #e84393;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .result-container {
+            margin-top: 40px;
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .result-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 3px solid var(--secondary-color);
+        }
+        
+        .filename-display {
+            margin-top: 10px;
+            font-style: italic;
+            color: #636e72;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .loading {
+            display: none;
+            margin: 30px auto;
+            text-align: center;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--secondary-color);
+            border-top: 5px solid var(--accent-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #636e72;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Upload an Image to Cartoonify</h1>
+        
+        <form method="POST" enctype="multipart/form-data" class="upload-form">
+            <div class="file-input-wrapper">
+                <label for="image-upload" class="file-input-label">Choose an Image</label>
+                <input type="file" id="image-upload" name="image" class="file-input" required accept="image/*">
+            </div>
+            <button type="submit" class="submit-btn">Upload & Cartoonify</button>
+        </form>
+        
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Processing your image...</p>
+        </div>
+
+        {% if image_name %}
+            <div class="result-container">
+                <h2>Your Cartoonified Image</h2>
+                <img src="{{ url_for('static', filename='results/' + image_name) }}" width="500" class="result-image">
+                <br><br>
+                <a href="{{ url_for('static', filename='results/' + image_name) }}" download="{{ image_name }}">
+                    <button class="submit-btn">Download Cartoon Image</button>
+                </a>
+            </div>
+        {% endif %}
+    </div>
+    
+    <footer>
+        <p>Cartoonify-Images &copy; 2023 | Transform your photos into cartoon art</p>
+    </footer>
+
+    <script>
+        // Show loading spinner when form is submitted
+        document.querySelector('form').addEventListener('submit', function() {
+            document.getElementById('loading').style.display = 'block';
+        });
+        
+        // Show selected filename
+        document.getElementById('image-upload').addEventListener('change', function(e) {
+            const label = document.querySelector('.file-input-label');
+            if (this.files.length > 0) {
+                label.textContent = this.files[0].name;
+                label.style.backgroundColor = '#00b894';
+            } else {
+                label.textContent = 'Choose an Image';
+                label.style.backgroundColor = '';
+            }
+        });
+    </script>
+</body>
+</html>
