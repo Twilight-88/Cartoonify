@@ -78,22 +78,6 @@ python app.py
 Visit: http://127.0.0.1:5000 in your browser 🚀
 
 
-🧪 Sample Output
-Original Image	Cartoonified
-
-📌 To Do
- Add pencil sketch / stylized options
-
- Allow drag-and-drop upload
-
- Host on Replit / Render / Heroku
 
 
-🙌 Acknowledgments
-OpenCV Library
-
-Flask Microframework
-
-
-> ⚠️ **Note**: If you want a sample image (`original.jpg`, `cartoon.jpg`, `screenshot.png`) to appear in the `README.md`, place them in `static/sample/` and commit them to GitHub.
 
