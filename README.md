@@ -28,6 +28,7 @@ Transform your photos into cartoon-style art using Python, OpenCV, and Flask!
 
 ## 📁 Project Structure
 
+```
 cartoonify-image/
 │
 ├── backend/
@@ -44,7 +45,7 @@ cartoonify-image/
 ├── venv/ # Python virtual environment
 ├── requirements.txt # Dependencies
 └── README.md
-
+```
 
 ---
 
@@ -52,26 +53,27 @@ cartoonify-image/
 
 ### 1. Clone the Repo
 
-```bash
+```
 git clone https://github.com/yourusername/cartoonify-image.git
 cd cartoonify-image
-
+```
 2. Create Virtual Environment
-
+```
 python -m venv venv
 # Windows:
 venv\Scripts\activate
 # macOS/Linux:
 source venv/bin/activate
-
+```
 3. Install Dependencies
-
+```
 pip install -r requirements.txt
-
+```
 4. Run the App
-
+```
 cd backend
 python app.py
+```
 Visit: http://127.0.0.1:5000 in your browser 🚀
 
 
@@ -85,8 +87,6 @@ Original Image	Cartoonified
 
  Host on Replit / Render / Heroku
 
-📜 License
-MIT License © 2025 [Your Name]
 
 🙌 Acknowledgments
 OpenCV Library
@@ -96,13 +96,3 @@ Flask Microframework
 
 > ⚠️ **Note**: If you want a sample image (`original.jpg`, `cartoon.jpg`, `screenshot.png`) to appear in the `README.md`, place them in `static/sample/` and commit them to GitHub.
 
----
-
-### ✅ Done!
-
-Would you like me to:
-- Help you deploy this (on **Render**, **Replit**, or **GitHub Pages** for frontend)?
-- Add more cartoon filters or download history?
-- Add user login to track uploaded images?
-
-Let me know what’s next!
